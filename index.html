@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sansar — two systems for a small business</title>
+  <meta name="description" content="Sansar has two products. A winery uses SansarBay. Another small business uses SansarERPx.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav class="navbar navbar-expand-lg site-nav">
+      <div class="container">
+        <a class="brand" href="index.html">Sansar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="bay.html">SansarBay</a></li>
+            <li class="nav-item"><a class="nav-link" href="erpx.html">SansarERPx</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn-book" href="#book">Book a demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="kicker">Choose your work</p>
+        <h1>Sansar is the system for a small business.</h1>
+        <p class="lede">Start with the kind of business you run. The matching product lights up.</p>
+        <div class="who-picks" role="group" aria-label="Kind of business">
+          <button type="button" data-product="bay" data-line="A winery uses SansarBay. Tell us during the demo which parts you need.">A winery</button>
+          <button type="button" data-product="erpx" data-line="Any other small business uses SansarERPx. You can start with CRM only, or add inventory and the other parts you need.">Any other small business</button>
+        </div>
+        <p class="lede who-line" id="who-line">Choose a kind of business above.</p>
+      </div>
+    </section>
+
+    <section class="band" style="padding-top: 0;">
+      <div class="container">
+        <div class="choice-grid">
+          <article class="choice" id="bay" data-product="bay">
+            <p class="kicker">Wineries</p>
+            <h2>SansarBay</h2>
+            <p class="choice-body">Customers, stock, and invoices live with the wine work: vintage, allocations, cellar-door sales, and the NZ Winegrowers levy.</p>
+            <p class="choice-note">We tailor it to what you need. Tell us during the demo.</p>
+            <a class="btn-book" href="bay.html">See SansarBay</a>
+          </article>
+          <article class="choice" id="erpx" data-product="erpx">
+            <p class="kicker">Any other small business</p>
+            <h2>SansarERPx</h2>
+            <p class="choice-body">CRM, inventory, accounts, reports, and documents live in one login, with email, activities, alerts, and a simple staff list. You can start with CRM only, or add inventory and the other parts as you need them.</p>
+            <p class="choice-note">Any other small business can use it. Tell us during the demo what to switch on.</p>
+            <a class="btn-book" href="erpx.html">See SansarERPx</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="book" style="padding-top: 0;">
+      <div class="container">
+        <p class="kicker">One demo</p>
+        <h2>Book a demo for the product you chose.</h2>
+        <p class="lede">Tell us which parts you need switched on. A winery demo uses one wine and two customers. Any other business can start with CRM only, or with CRM and inventory.</p>
+        <div class="hero-actions">
+          <a class="btn-book" href="demo.html">Book a SansarBay demo</a>
+          <a class="btn-ghost" href="erpx.html">Book a SansarERPx demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <div>
+        <a class="footer-brand" href="index.html">Sansar</a>
+        <p class="mb-0 mt-1">Two products. One for a winery, and one for another small business.</p>
+        <p class="mb-0">Sansar, Auckland, New Zealand · <a href="mailto:hello@sansarbay.com">hello@sansarbay.com</a></p>
+      </div>
+      <div>
+        <a href="bay.html">SansarBay</a><br>
+        <a href="erpx.html">SansarERPx</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll(".who-picks button");
+      var line = document.getElementById("who-line");
+      var cards = document.querySelectorAll(".choice");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var product = button.getAttribute("data-product");
+          buttons.forEach(function (item) {
+            item.classList.toggle("is-on", item === button);
+            item.setAttribute("aria-pressed", item === button ? "true" : "false");
+          });
+          cards.forEach(function (card) {
+            card.classList.toggle("is-chosen", card.getAttribute("data-product") === product);
+          });
+          line.textContent = button.getAttribute("data-line");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
